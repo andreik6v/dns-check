@@ -66,17 +66,14 @@ export default function Page() {
   }
 
   return (
-    <main className="min-h-screen bg-background px-4 py-10 text-foreground sm:py-16">
-      <div className="mx-auto flex w-full max-w-2xl flex-col gap-8">
-        <header className="flex flex-col gap-4 text-center">
+    <main className="flex min-h-screen items-center justify-center bg-background p-4 text-foreground">
+      <div className="flex w-full max-w-md flex-col gap-6">
+        <header className="flex flex-col gap-2 text-center">
           <div className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
             <Globe2 aria-hidden="true" className="size-6" />
           </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-medium tracking-wide text-primary">DNS TOOLS</p>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">DNS record checker</h1>
-            <p className="mx-auto max-w-lg text-pretty text-muted-foreground">Look up the public DNS records for any domain. Fast, simple, and free.</p>
-          </div>
+          <h1 className="text-3xl font-bold tracking-tight">DNS record checker</h1>
+          <p className="text-sm text-muted-foreground">Look up the public DNS records for any domain. Fast, simple, and free.</p>
         </header>
 
         <Card className="shadow-sm">
