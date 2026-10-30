@@ -109,12 +109,12 @@ export default function Page() {
             {totalRecords > 0 ? (
               <Card>
                 <CardContent className="p-0">
-                  <Table className="w-full table-fixed">
+                  <Table className="w-full min-w-0 table-fixed">
                     <TableHeader>
                       <TableRow><TableHead className="w-24">Type</TableHead><TableHead>Value</TableHead><TableHead className="hidden w-24 text-right sm:table-cell">TTL</TableHead></TableRow>
                     </TableHeader>
                     <TableBody>
-                      {results.flatMap((result) => result.records.map((record, index) => <TableRow key={`${result.type}-${record.data}-${index}`}><TableCell><Badge variant="secondary" className="font-mono text-xs">{result.type}</Badge></TableCell><TableCell className="max-w-[260px] break-all font-mono text-xs sm:max-w-none sm:text-sm">{record.data}</TableCell><TableCell className="hidden text-right font-mono text-xs text-muted-foreground sm:table-cell">{record.TTL ?? '—'}</TableCell></TableRow>))}
+                      {results.flatMap((result) => result.records.map((record, index) => <TableRow key={`${result.type}-${record.data}-${index}`}><TableCell><Badge variant="secondary" className="font-mono text-xs">{result.type}</Badge></TableCell><TableCell className="min-w-0 max-w-0 break-all whitespace-normal font-mono text-xs sm:text-sm">{record.data}</TableCell><TableCell className="hidden text-right font-mono text-xs text-muted-foreground sm:table-cell">{record.TTL ?? '—'}</TableCell></TableRow>))}
                     </TableBody>
                   </Table>
                 </CardContent>
