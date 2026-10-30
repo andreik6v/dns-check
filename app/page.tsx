@@ -21,7 +21,7 @@ function cleanDomain(value: string) {
 }
 
 export default function Page() {
-  const [domain, setDomain] = useState('example.com')
+  const [domain, setDomain] = useState('')
   const [searchedDomain, setSearchedDomain] = useState('')
   const [results, setResults] = useState<LookupResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -67,7 +67,7 @@ export default function Page() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background p-4 text-foreground">
-      <div className="flex w-full max-w-md flex-col gap-6">
+      <div className="flex w-full max-w-4xl flex-col gap-6">
         <header className="flex flex-col gap-2 text-center">
           <div className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
             <Globe2 aria-hidden="true" className="size-6" />
@@ -109,12 +109,12 @@ export default function Page() {
             {totalRecords > 0 ? (
               <Card>
                 <CardContent className="p-0">
-                  <Table>
+                  <Table className="w-full min-w-0 table-fixed">
                     <TableHeader>
                       <TableRow><TableHead className="w-24">Type</TableHead><TableHead>Value</TableHead><TableHead className="hidden w-24 text-right sm:table-cell">TTL</TableHead></TableRow>
                     </TableHeader>
                     <TableBody>
-                      {results.flatMap((result) => result.records.map((record, index) => <TableRow key={`${result.type}-${record.data}-${index}`}><TableCell><Badge variant="secondary" className="font-mono text-xs">{result.type}</Badge></TableCell><TableCell className="max-w-[260px] break-all font-mono text-xs sm:max-w-none sm:text-sm">{record.data}</TableCell><TableCell className="hidden text-right font-mono text-xs text-muted-foreground sm:table-cell">{record.TTL ?? '—'}</TableCell></TableRow>))}
+                      {results.flatMap((result) => result.records.map((record, index) => <TableRow key={`${result.type}-${record.data}-${index}`}><TableCell><Badge variant="secondary" className="font-mono text-xs">{result.type}</Badge></TableCell><TableCell className="min-w-0 max-w-0 break-all whitespace-normal font-mono text-xs sm:text-sm">{record.data}</TableCell><TableCell className="hidden text-right font-mono text-xs text-muted-foreground sm:table-cell">{record.TTL ?? '—'}</TableCell></TableRow>))}
                     </TableBody>
                   </Table>
                 </CardContent>
